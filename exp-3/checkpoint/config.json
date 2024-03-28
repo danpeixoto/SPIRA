@@ -1,0 +1,66 @@
+{
+  "model_name": "spiraconv_v2",
+  "seed": 42,
+  "dataset": {
+    "split_wav_using_overlapping": true,
+    "window_len": 4,
+    "step": 1,
+    "padding_with_max_lenght": false,
+    "max_seq_len": 401,
+    "train_csv": "/data/SPIRA_Dataset_V2/metadata_train.csv",
+    "train_data_root_path": "/data/SPIRA_Dataset_V2",
+    "eval_csv": "/data/SPIRA_Dataset_V2/metadata_eval.csv",
+    "eval_data_root_path": "/data/SPIRA_Dataset_V2/",
+    "test_csv": "/data/SPIRA_Dataset_V2/metadata_test.csv",
+    "test_data_root_path": "/data/SPIRA_Dataset_V2/",
+    "noise_csv": "../Dataset/Ruidos-Hospitalares/noise_data.csv",
+    "noise_data_root_path": "../Dataset/Ruidos-Hospitalares/",
+    "control_class": 0,
+    "patient_class": 1
+  },
+  "model": {
+    "fc1_dim": 100,
+    "fc2_dim": 1
+  },
+  "train_config": {
+    "early_stop_epochs": 0,
+    "lr_decay": true,
+    "warmup_steps": 1000,
+    "epochs": 1000,
+    "learning_rate": 0.001,
+    "weight_decay": 0.01,
+    "optimizer": "adam",
+    "batch_size": 1,
+    "seed": 42,
+    "num_workers": 5,
+    "logs_path": "../checkpoints/Exp003/exp1.0/",
+    "reinit_layers": null,
+    "summary_interval": 10,
+    "checkpoint_interval": 500
+  },
+  "data_aumentation": {
+    "insert_noise": true,
+    "num_noise_control": 3,
+    "num_noise_patient": 3,
+    "noise_max_amp": 0.19233719,
+    "noise_min_amp": 0.033474047
+  },
+  "test_config": {
+    "batch_size": 5,
+    "num_workers": 10
+  },
+  "audio": {
+    "feature": "logmel",
+    "sample_rate": 16000,
+    "normalize": true,
+    "num_mels": 80,
+    "mel_fmin": 0.0,
+    "mel_fmax": null,
+    "num_mfcc": 40,
+    "log_mels": false,
+    "n_fft": 1200,
+    "num_freq": 601,
+    "hop_length": 160,
+    "win_length": 400
+  }
+}
