@@ -1,2 +1,0 @@
-exp1 - experimento utilizando pann cnn14
-exp2 - mesmo do exp1, porém, sem mixup, sem specaugment e com overlapping. 
